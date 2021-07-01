@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Frame, Button
 from PIL import Image, ImageTk
-
+from rfid import Rfid
 
 class MainWindow(Tk):
     def __init__(self):
@@ -39,6 +39,8 @@ class MainWindow(Tk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
 
+
 widget = MainWindow()
 widget.setupUi()
+rfid = Rfid(widget)
 widget.mainloop()
