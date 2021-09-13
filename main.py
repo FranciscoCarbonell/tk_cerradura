@@ -1,16 +1,21 @@
 from tkinter import Tk, Label, Frame, Button
 from PIL import Image, ImageTk
 from rfid import Rfid
+import os.path
 
 class MainWindow(Tk):
     def __init__(self):
         super().__init__()
+        #self.attributes('-fullscreen', True)
 
     def set_number(self, event, button):
         self.label2['text'] += button['text']
     
     def setupUi(self):
-        self.img = ImageTk.PhotoImage(Image.open('images.png'))
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        filename = os.path.join(current_directory, 'images.png')
+        print(filename)
+        self.img = ImageTk.PhotoImage(Image.open(filename))
         self.label = Label(self, image=self.img)
         self.label.grid(row=0, column=0, sticky='ew', pady=(30, 0))
 
@@ -43,4 +48,6 @@ class MainWindow(Tk):
 widget = MainWindow()
 widget.setupUi()
 rfid = Rfid(widget)
+rfid.daemon = True
+rfid.start()
 widget.mainloop()

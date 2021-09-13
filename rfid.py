@@ -1,5 +1,9 @@
 from threading import Thread
 from evdev import InputDevice
+from select import select
+import logging
+
+logger = logging.getLogger(__name__)
 
 try:
     import RPi.GPIO as GPIO
@@ -30,8 +34,15 @@ class Rfid(Thread):
         self.running = False
     
     def read_events(self):
+        r, x, z = select([self.dev], [], [])
         for event in self.dev.read():
             if event.type==1 and event.value==1 and event.code == 28:
-                 pass
+                # Key code 28 (Enter)
+                # 4804804 (last 7 character)
+
+
+                logging.warning('push enter')
+                logging.warning(''.join(map(str, self.buffer)))
+                self.buffer = []
             else:
                 self.buffer.append(event.code)
