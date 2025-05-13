@@ -60,6 +60,16 @@ body:
       required: false
 
   - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción de la tarea
+      description: Explica claramente qué se necesita hacer.
+      placeholder: |
+        Describir qué se espera del desarrollo, pasos para reproducir un bug, o cualquier detalle relevante.
+    validations:
+      required: true
+
+  - type: textarea
     id: criterios
     attributes:
       label: Criterios de aceptación
@@ -67,3 +77,6 @@ body:
       placeholder: |
         - El botón se muestra solo cuando el estado es "Borrador"
         - Se envía un correo automático al validar
+        - Se actualiza el estado correctamente
+    validations:
+      required: false
