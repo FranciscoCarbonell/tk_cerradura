@@ -11,15 +11,6 @@ body:
         Completa los siguientes campos para registrar una tarea correctamente.
 
   - type: input
-    id: titulo
-    attributes:
-      label: Título
-      description: Título corto y claro de la tarea
-      placeholder: ej. Agregar botón de validación en el formulario de facturas
-    validations:
-      required: true
-
-  - type: input
     id: modulos
     attributes:
       label: Módulos relacionados
