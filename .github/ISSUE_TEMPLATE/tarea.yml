@@ -55,4 +55,15 @@ body:
     attributes:
       label: Pull request relacionado
       description: Número o URL del pull request relacionado (si ya existe)
-      placeholder: ej.
+      placeholder: ej. #42 o https://github.com/mi-org/mi-repo/pull/42
+    validations:
+      required: false
+
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: ¿Cómo sabremos que esta tarea está correctamente implementada?
+      placeholder: |
+        - El botón se muestra solo cuando el estado es "Borrador"
+        - Se envía un correo automático al validar
