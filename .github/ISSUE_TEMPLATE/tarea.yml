@@ -50,14 +50,9 @@ body:
     validations:
       required: false
 
-  - type: textarea
-    id: criterios
+  - type: input
+    id: pr_relacionado
     attributes:
-      label: Criterios de aceptación
-      description: ¿Cómo sabremos que esta tarea está correctamente implementada?
-      placeholder: |
-        - El botón se muestra solo cuando el estado es "Borrador"
-        - Se envía un correo automático al validar
-        - Se actualiza el estado correctamente
-    validations:
-      required: false
+      label: Pull request relacionado
+      description: Número o URL del pull request relacionado (si ya existe)
+      placeholder: ej.
