@@ -1,0 +1,72 @@
+name: Tarea Odoo
+description: Crear una nueva tarea o requerimiento para desarrollo en Odoo
+title: "[MODULO] Breve descripción de la tarea"
+labels: ["tarea", "odoo"]
+assignees:
+  - nombre-del-usuario
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por crear una nueva tarea. Por favor completa los siguientes campos para poder gestionarla correctamente.
+
+  - type: input
+    id: modulo
+    attributes:
+      label: Módulo
+      description: Nombre del módulo o funcionalidad relacionada (ej. `sale`, `account`, `mi_modulo_personalizado`)
+      placeholder: ej. mi_modulo_personalizado
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo_tarea
+    attributes:
+      label: Tipo de tarea
+      description: ¿Qué tipo de tarea es?
+      options:
+        - Desarrollo nuevo
+        - Mejora
+        - Bug / Corrección
+        - Investigación / Análisis
+    validations:
+      required: true
+
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción de la tarea
+      description: Explica claramente qué se necesita hacer.
+      placeholder: |
+        Describir qué se espera del desarrollo, pasos para reproducir un bug, o cualquier detalle relevante.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: Define cómo sabremos que la tarea está terminada correctamente.
+      placeholder: |
+        - El botón aparece solo para usuarios con permisos
+        - El cálculo de impuestos es correcto según...
+        - Se actualiza el estado automáticamente...
+    validations:
+      required: false
+
+  - type: input
+    id: rama
+    attributes:
+      label: Rama sugerida
+      description: Nombre de la rama donde se debería trabajar esta tarea
+      placeholder: ej. feature/mi_modulo/nombre_tarea
+    validations:
+      required: false
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Notas adicionales
+      description: Cualquier otro detalle, referencia, enlace o comentario útil
+    validations:
+      required: false
