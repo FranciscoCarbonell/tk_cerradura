@@ -8,16 +8,25 @@ body:
   - type: markdown
     attributes:
       value: |
-        Gracias por crear una nueva tarea. Por favor completa los siguientes campos para poder gestionarla correctamente.
+        Completa los siguientes campos para registrar una tarea correctamente.
 
   - type: input
-    id: modulo
+    id: titulo
     attributes:
-      label: Módulo
-      description: Nombre del módulo o funcionalidad relacionada (ej. `sale`, `account`, `mi_modulo_personalizado`)
-      placeholder: ej. mi_modulo_personalizado
+      label: Título
+      description: Título corto y claro de la tarea
+      placeholder: ej. Agregar botón de validación en el formulario de facturas
     validations:
       required: true
+
+  - type: input
+    id: modulos
+    attributes:
+      label: Módulos relacionados
+      description: Nombres de los módulos involucrados (separados por coma si hay más de uno)
+      placeholder: ej. account, mi_modulo_personalizado
+    validations:
+      required: false
 
   - type: dropdown
     id: tipo_tarea
@@ -32,41 +41,23 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: descripcion
+  - type: input
+    id: rama_relacionada
     attributes:
-      label: Descripción de la tarea
-      description: Explica claramente qué se necesita hacer.
-      placeholder: |
-        Describir qué se espera del desarrollo, pasos para reproducir un bug, o cualquier detalle relevante.
+      label: Rama relacionada
+      description: Nombre de la rama donde se trabaja la tarea (si aplica)
+      placeholder: ej. feature/account/boton-validacion
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: criterios
     attributes:
       label: Criterios de aceptación
-      description: Define cómo sabremos que la tarea está terminada correctamente.
+      description: ¿Cómo sabremos que esta tarea está correctamente implementada?
       placeholder: |
-        - El botón aparece solo para usuarios con permisos
-        - El cálculo de impuestos es correcto según...
-        - Se actualiza el estado automáticamente...
-    validations:
-      required: false
-
-  - type: input
-    id: rama
-    attributes:
-      label: Rama sugerida
-      description: Nombre de la rama donde se debería trabajar esta tarea
-      placeholder: ej. feature/mi_modulo/nombre_tarea
-    validations:
-      required: false
-
-  - type: textarea
-    id: notas
-    attributes:
-      label: Notas adicionales
-      description: Cualquier otro detalle, referencia, enlace o comentario útil
+        - El botón se muestra solo cuando el estado es "Borrador"
+        - Se envía un correo automático al validar
+        - Se actualiza el estado correctamente
     validations:
       required: false
